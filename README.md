@@ -1,3 +1,3 @@
 ```shell
-mvn clean protobuf:compile package deploy
+mvn clean protobuf:compile compile package deploy
 ```
