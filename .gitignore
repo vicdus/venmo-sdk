@@ -1,3 +1,4 @@
 target
 .DS_Store
 .idea
+src/main/java/com/venmo/unofficial/generated
