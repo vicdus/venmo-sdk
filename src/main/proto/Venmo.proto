@@ -1,0 +1,105 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.venmo.unofficial";
+
+message GetUserResponse {
+  User data = 1;
+}
+
+message Pagination {
+  string previous = 1;
+  string next = 2;
+}
+
+message GetStoriesResponse {
+  repeated Story data = 1;
+  Pagination pagination = 2;
+}
+
+message SearchUserResponse {
+  repeated User data = 1;
+  Pagination pagination = 2;
+}
+
+message Profile {
+  User user = 1;
+}
+
+message GetMeResponse {
+  Profile data = 1;
+}
+
+message User {
+  string last_name = 1;
+  string first_name = 2;
+  string username = 3;
+  string id = 4;
+  string display_name = 5;
+  int64 friends_count = 6;
+  string about = 7;
+  bool is_group = 8;
+  bool is_blocked = 9;
+  bool is_active = 10;
+  bool is_payable = 11;
+  string profile_picture_url = 12;
+
+  enum IdentityType{
+    PERSONAL = 0;
+  }
+  IdentityType identity_type = 13;
+
+  enum FriendStatus{
+    FRIENDS = 0;
+    NOT_FRIEND = 1;
+  }
+  string friend_status = 15;
+}
+
+message Payment {
+  User actor = 1;
+  Target target = 2;
+
+  enum Action {
+    PAY = 0;
+    CHARGE = 1;
+  }
+  Action action = 3;
+  double amount = 4;
+}
+
+message Target {
+  User user = 1;
+}
+
+message Story {
+  string id = 1;
+  string date_created = 2;
+  Payment payment = 3;
+  string status = 4;
+  string date_completed = 5;
+  string note = 6;
+
+  enum Audience {
+    PUBLIC = 0;
+    FRIENDS = 1;
+    PRIVATE = 2;
+  }
+  Audience audience = 7;
+}
+
+message ChargeOrPaymentResponse {
+  message ChargeOrPaymentResponseData {
+    string balance = 1;
+    Payment payment = 2;
+  }
+  ChargeOrPaymentResponseData data = 1;
+}
+
+message LoginResponse {
+  message LoginError {}
+  LoginError error = 1;
+  string access_token = 2;
+  double balance = 3;
+  User user = 4;
+}
