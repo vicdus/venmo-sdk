@@ -1,6 +1,7 @@
 package com.venmo.unofficial;
 
 import com.google.common.base.Preconditions;
+import com.google.common.collect.ImmutableMap;
 import com.venmo.unofficial.generated.*;
 
 import java.net.URI;
@@ -9,16 +10,15 @@ import java.util.Collections;
 import java.util.Map;
 
 
-public class VenmoVenmoClient extends VenmoClientBase {
-
-    public VenmoVenmoClient(String accessToken) {
+public class VenmoClient extends VenmoClientBase {
+    public VenmoClient(String accessToken) {
         super(accessToken);
     }
 
     public final SearchUserResponse SearchUser(String username) {
         SearchUserResponse.Builder b = SearchUserResponse.newBuilder();
         String resource = "users";
-        get(resource, Map.of("type", "username", "query", username), b);
+        get(resource, ImmutableMap.of("type", "username", "query", username), b);
         return b.build();
     }
 
