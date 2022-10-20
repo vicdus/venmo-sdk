@@ -55,7 +55,7 @@
                 <extensions>true</extensions>
                 <configuration>
                     <protoSourceRoot>${project.basedir}/src/main/proto</protoSourceRoot>
-                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+                    <outputDirectory>${project.basedir}/src/main/java/generated</outputDirectory>
                 </configuration>
                 <executions>
                     <execution>
