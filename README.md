@@ -1,4 +1,3 @@
 ```shell
-mvn protobuf:compile
-mvn install
+mvn clean protobuf:compile package deploy
 ```
