@@ -20,9 +20,9 @@ This is unofficial Venmo Java SDK implmented by wrapping https://github.com/mmoh
 ```
 <dependencies>
     <dependency>
-        <groupId>com.itranswarp.rich</groupId>
-        <artifactId>how-to-become-rich</artifactId>
-        <version>1.0.0</version>
+        <groupId>com.venmo.unofficial</groupId>
+        <artifactId>venmo-sdk</artifactId>
+        <version>0.1</version>
     </dependency>
 </dependencies>
 ```
